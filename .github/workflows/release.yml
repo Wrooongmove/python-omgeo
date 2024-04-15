@@ -9,6 +9,8 @@ jobs:
   release:
     name: release
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
     steps:
       - name: Checkout commit and fetch tag history
         uses: actions/checkout@v2
@@ -25,10 +27,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install setuptools wheel twine
 
-      - name: Build and publish package
-        env:
-          TWINE_USERNAME: ${{ secrets.PYPI_AZAVEA_USERNAME }}
-          TWINE_PASSWORD: ${{ secrets.PYPI_AZAVEA_PASSWORD }}
-        run: |
-          python setup.py sdist bdist_wheel
-          twine upload dist/*
+      - name: Build release package
+        run: python setup.py sdist bdist_wheel
+
+      - name: Upload release to TestPyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          repository-url: https://test.pypi.org/legacy/
