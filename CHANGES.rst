@@ -235,3 +235,7 @@ v6.2.0, 2024-01-22
    previously would provide an internal Loc_name field in the response which
    is no longer supplied, which broke the API. Making that field optional in
    our code fixes this.
+
+v6.2.1, 2024-04-15
+------------------
+ * Update PyPI publishing integration
