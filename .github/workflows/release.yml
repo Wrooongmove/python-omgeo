@@ -30,7 +30,5 @@ jobs:
       - name: Build release package
         run: python setup.py sdist bdist_wheel
 
-      - name: Upload release to TestPyPI
+      - name: Upload release to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-          repository-url: https://test.pypi.org/legacy/
