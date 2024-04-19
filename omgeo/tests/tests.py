@@ -179,7 +179,7 @@ class GeocoderTest(OmgeoTestCase):
         """
         candidates = self.g_esri_wgs.get_candidates(self.pq['senado_mx'])
         self.assertOneCandidate(candidates)
-        search_text = 'Paseo de la Reforma 135'
+        search_text = 'Paseo de La Reforma 135'
         self.assertEqual(search_text in candidates[0].match_addr, True,
                          '"%s" not found in match_addr. Got "%s".'
                          % (search_text, candidates[0].match_addr))
@@ -192,7 +192,7 @@ class GeocoderTest(OmgeoTestCase):
         """
         candidates = self.g_esri_wgs.get_candidates(self.pq['senado_mx_struct'])
         self.assertOneCandidate(candidates)
-        search_text = 'Paseo de la Reforma 135'
+        search_text = 'Paseo de La Reforma 135'
         self.assertEqual(search_text in candidates[0].match_addr, True,
                          '"%s" not found in match_addr. Got "%s".'
                          % (search_text, candidates[0].match_addr))
